@@ -1,9 +1,7 @@
 package com.bakir.ali.library_project.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Entity
@@ -15,12 +13,13 @@ public class Book {
     private String book_name;
     private String book_subname;
     private String series_name;
-//    TODO: it must be primary key
-    private String author;
-//    TODO: it must be primary key
-    private String publisher;
-    private String isbn_number;
+    private int isbn_number;
     private String comment;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id", name = "publisher_id")
+    private Author author;
+    private Publisher publisher;
 
     public Book() {
     }
