@@ -1,7 +1,11 @@
 package com.bakir.ali.library_project.service;
 
+import com.bakir.ali.library_project.model.User;
+import com.bakir.ali.library_project.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -22,7 +26,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    oublic void updateUser(User user){
+    public void updateUser(User user){
 
         User user1 = userRepository.getOne(user.getId());
 
