@@ -11,7 +11,7 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    UserRepository userRepository
+    private UserRepository userRepository;
 
     public User saveUser(User user){
 
@@ -30,7 +30,7 @@ public class UserService {
 
         User user1 = userRepository.getOne(user.getId());
 
-        user1.setName(user.getName());
+        user1.setFirstName(user.getFirstName());
         user1.setLastName(user.getLastName());
         userRepository.save(user1);
     }
