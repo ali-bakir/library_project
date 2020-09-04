@@ -1,11 +1,8 @@
 package com.bakir.ali.library_project.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
-
 
 @Entity
-
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,15 +14,18 @@ public class Book {
     private String comment;
 
     @ManyToOne
-    @JoinColumn(name = "author_id", name = "publisher_id")
+    @JoinColumn(name = "author_id", referencedColumnName = "id")
     private Author author;
+
+    @ManyToOne
+    @JoinColumn(name = "publisher_id", referencedColumnName = "id")
     private Publisher publisher;
 
     public Book() {
     }
 
-    public Book(String book_name, String book_subname, String series_name, String author, String publisher,
-                String isbn_number, String comment) {
+    public Book(String book_name, String book_subname, String series_name, Author author, Publisher publisher,
+                int isbn_number, String comment) {
         this.book_name = book_name;
         this.book_subname = book_subname;
         this.series_name = series_name;
@@ -51,15 +51,15 @@ public class Book {
         return series_name;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public String getPublisher() {
+    public Publisher getPublisher() {
         return publisher;
     }
 
-    public String getIsbn_number() {
+    public int getIsbn_number() {
         return isbn_number;
     }
 
