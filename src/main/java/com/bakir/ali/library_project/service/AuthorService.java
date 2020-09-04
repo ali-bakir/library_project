@@ -1,22 +1,23 @@
 package com.bakir.ali.library_project.service;
 
 import com.bakir.ali.library_project.model.Author;
+import com.bakir.ali.library_project.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
+import java.util.List;
 
 @Service
-public class AuthorService<AuthorRepository> {
+public class AuthorService {
 
     @Autowired
-    private AuthorRepository authorReporsitory;
+    private AuthorRepository authorRepository;
 
-    public Set<Author> getAllAuthor(){
-        return (Set<Author>)authorReporsitory.findAll();
+    public List<Author> getAllAuthor(){
+        return authorRepository.findAll();
     }
 
     public Author save(Author author){
-        return authorReporsitory.save(author);
+        return authorRepository.save(author);
     }
 }
