@@ -4,12 +4,9 @@ import com.bakir.ali.library_project.model.Book;
 import com.bakir.ali.library_project.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Set;
+import java.util.List;
 
 @RestController
 @RequestMapping("books")
@@ -19,12 +16,13 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping
-    public ResponseEntity<Set<Book>> getAllBook(){
+    public ResponseEntity<List<Book>> getAllBook() {
         return ResponseEntity.ok(bookService.getAllBook());
     }
 
     @PostMapping
-    public ResponseEntity<Book> saveBook(@RequestBody Book book){
+    public ResponseEntity<Book> saveBook(@RequestBody Book book) {
         return ResponseEntity.ok(bookService.save(book))
-;    }
+                ;
+    }
 }

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Set;
+import java.util.List;
 
 @RestController
 @RequestMapping("publishers")
@@ -16,12 +16,12 @@ public class PublisherController {
     private PublisherService publisherService;
 
     @GetMapping
-    public ResponseEntity<Set<Publisher>> getAllPublisher(){
+    public ResponseEntity<List<Publisher>> getAllPublisher() {
         return ResponseEntity.ok(publisherService.getAllPublisher());
     }
 
     @PostMapping
-    public ResponseEntity<Publisher> savePublisher(@RequestBody Publisher publisher){
+    public ResponseEntity<Publisher> savePublisher(@RequestBody Publisher publisher) {
         return ResponseEntity.ok(publisherService.save(publisher));
     }
 }
