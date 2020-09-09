@@ -13,5 +13,14 @@ public class LibraryProjectApplication {
         SpringApplication.run(LibraryProjectApplication.class, args);
     }
     @GetMapping ("/index")
-    public String index () { return "login.html";}
+    public String index () { return "index.html";}
+
+    @GetMapping ("/login")
+    public String login () { return "login.html";}
+
+    @GetMapping ("/logout")
+    public String logout () {return "logout.html";}
+
+    @GetMapping ("/fragments")
+    public String fragments () { return "fragments.html";}
 }
