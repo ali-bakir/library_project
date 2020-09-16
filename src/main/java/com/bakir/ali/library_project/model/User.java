@@ -1,13 +1,17 @@
 package com.bakir.ali.library_project.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.jetbrains.annotations.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.security.AuthProvider;
 
 
 @Entity
+@Table(name = "users", uniqueConstraints = {
+        @UniqueConstraint(columNames = "email")
+})
 public class User {
 
     @Id
@@ -52,3 +56,34 @@ public class User {
         this.lastName = value;
     }
 }
+
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String username;
+
+    private String firstName;
+
+    private String lastName;
+
+
+    @Email
+    @Column(nullable = false)
+    private String email;
+
+    private String imageUrl;
+
+    @Column(nullable = false)
+    private Boolean emailVerified = false;
+
+    @JsonIgnore
+    private String password;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private AuthProvider provider;
+
+    private String providerId;
