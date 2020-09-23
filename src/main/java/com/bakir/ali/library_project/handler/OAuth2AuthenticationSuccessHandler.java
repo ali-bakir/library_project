@@ -3,7 +3,7 @@ package com.bakir.ali.library_project.handler;
 import com.bakir.ali.library_project.exception.BadRequestException;
 import com.bakir.ali.library_project.properties.AppProperties;
 import com.bakir.ali.library_project.provider.TokenProvider;
-import com.bakir.ali.library_project.repository.CookieUtils;
+import com.bakir.ali.library_project.utils.CookieUtils;
 import com.bakir.ali.library_project.repository.HttpCookieOAuth2AuthorizationRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
