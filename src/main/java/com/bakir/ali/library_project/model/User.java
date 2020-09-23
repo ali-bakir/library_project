@@ -1,16 +1,15 @@
 package com.bakir.ali.library_project.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-import java.security.AuthProvider;
 
 
 @Entity
 @Table(name = "users", uniqueConstraints = {
-        @UniqueConstraint(columNames = "email")
+        @UniqueConstraint(columnNames = "email")
 })
 public class User {
 
@@ -18,19 +17,35 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
+    @JsonIgnore
     private String password;
     private String firstName;
     private String lastName;
 
+    @Email
+    @Column(nullable = false)
+    private String email;
+
+    private String imageUrl;
+
+    @Column(nullable = false)
+    private Boolean emailVerified = false;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private AuthProvider provider;
+
+    private String providerId;
 
     public User() {
     }
 
-    public User(String username, String password, String firstName, String lastName) {
+    public User(String username, String password, String firstName, String lastName, AuthProvider provider) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.provider = provider;
     }
 
     public Long getId() {
@@ -45,45 +60,42 @@ public class User {
         return password;
     }
 
-    public String getFirstName(){return firstName;}
+    public String getFirstName() {
+        return firstName;
+    }
 
-    public String getLastName(){return lastName;}
+    public String getLastName() {
+        return lastName;
+    }
 
-    public void setFirstName(String value){
+    public void setFirstName(String value) {
         this.firstName = value;
     }
-    public void setLastName(String value){
+
+    public void setLastName(String value) {
         this.lastName = value;
     }
+
+    public String getProvider() {
+        return provider.name();
+    }
+
+    public void setProvider(AuthProvider valueOf) {
+        this.provider = valueOf;
+    }
+
+    public void setProviderId(String id) {
+        this.providerId = id;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getEmail() {
+    }
 }
-
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
-    private String username;
-
-    private String firstName;
-
-    private String lastName;
-
-
-    @Email
-    @Column(nullable = false)
-    private String email;
-
-    private String imageUrl;
-
-    @Column(nullable = false)
-    private Boolean emailVerified = false;
-
-    @JsonIgnore
-    private String password;
-
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    private AuthProvider provider;
-
-    private String providerId;
