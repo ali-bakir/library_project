@@ -2,7 +2,7 @@ package com.bakir.ali.library_project.service;
 
 import com.bakir.ali.library_project.exception.ResourceNotFoundException;
 import com.bakir.ali.library_project.model.User;
-import com.bakir.ali.library_project.principal.UserPrincipal;
+import com.bakir.ali.library_project.security.UserPrincipal;
 import com.bakir.ali.library_project.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

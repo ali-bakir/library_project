@@ -1,11 +1,11 @@
 package com.bakir.ali.library_project.service;
 
 import com.bakir.ali.library_project.exception.OAuth2AuthenticationProcessingException;
-import com.bakir.ali.library_project.factory.OAuth2UserInfoFactory;
+import com.bakir.ali.library_project.oauth2.user.OAuth2UserInfoFactory;
 import com.bakir.ali.library_project.model.AuthProvider;
 import com.bakir.ali.library_project.model.User;
 import com.bakir.ali.library_project.oauth2.user.OAuth2UserInfo;
-import com.bakir.ali.library_project.principal.UserPrincipal;
+import com.bakir.ali.library_project.security.UserPrincipal;
 import com.bakir.ali.library_project.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
