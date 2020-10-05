@@ -1,9 +1,9 @@
 package com.bakir.ali.library_project.config;
 
-import com.bakir.ali.library_project.filter.TokenAuthenticationFilter;
+import com.bakir.ali.library_project.security.TokenAuthenticationFilter;
 import com.bakir.ali.library_project.handler.OAuth2AuthenticationFailureHandler;
 import com.bakir.ali.library_project.handler.OAuth2AuthenticationSuccessHandler;
-import com.bakir.ali.library_project.point.RestAuthenticationEntryPoint;
+import com.bakir.ali.library_project.security.RestAuthenticationEntryPoint;
 import com.bakir.ali.library_project.repository.HttpCookieOAuth2AuthorizationRequestRepository;
 import com.bakir.ali.library_project.service.CustomOAuth2UserService;
 import com.bakir.ali.library_project.service.CustomUserDetailsService;
