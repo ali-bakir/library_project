@@ -98,4 +98,10 @@ public class User {
 
     public String getEmail() {
     }
+
+    public void setfirstName(Object name) {
+    }
+
+    public void setPassword(Object password) {
+    }
 }
