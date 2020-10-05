@@ -1,4 +1,4 @@
-package com.bakir.ali.library_project.principal;
+package com.bakir.ali.library_project.security;
 
 import com.bakir.ali.library_project.model.User;
 import org.springframework.security.core.GrantedAuthority;

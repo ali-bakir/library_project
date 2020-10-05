@@ -1,4 +1,4 @@
-package com.bakir.ali.library_project.point;
+package com.bakir.ali.library_project.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

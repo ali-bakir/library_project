@@ -1,6 +1,5 @@
-package com.bakir.ali.library_project.provider;
+package com.bakir.ali.library_project.security;
 
-import com.bakir.ali.library_project.principal.UserPrincipal;
 import com.bakir.ali.library_project.properties.AppProperties;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
