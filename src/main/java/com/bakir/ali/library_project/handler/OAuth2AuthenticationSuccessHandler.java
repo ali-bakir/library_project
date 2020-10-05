@@ -2,7 +2,7 @@ package com.bakir.ali.library_project.handler;
 
 import com.bakir.ali.library_project.exception.BadRequestException;
 import com.bakir.ali.library_project.properties.AppProperties;
-import com.bakir.ali.library_project.provider.TokenProvider;
+import com.bakir.ali.library_project.security.TokenProvider;
 import com.bakir.ali.library_project.utils.CookieUtils;
 import com.bakir.ali.library_project.repository.HttpCookieOAuth2AuthorizationRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +54,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
     protected String determineTargetUrl(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
         Optional<String> redirectUri = CookieUtils.getCookie(request, REDIRECT_URI_PARAM_COOKIE_NAME)
-                .map(Cookie::getValue);
+                .map((Object t) -> Cookie.getValue(t));
 
         if(redirectUri.isPresent() && !isAuthorizedRedirectUri(redirectUri.get())) {
             throw new BadRequestException("Sorry! We've got an Unauthorized Redirect URI and can't proceed with the authentication");
