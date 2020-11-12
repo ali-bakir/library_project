@@ -12,8 +12,10 @@ public class LoginRequest {
     private String password;
 
     public Object getEmail() {
+        return email;
     }
 
     public Object getPassword() {
+        return null;
     }
 }

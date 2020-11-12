@@ -97,6 +97,7 @@ public class User {
     }
 
     public String getEmail() {
+        return null;
     }
 
     public void setfirstName(Object name) {
